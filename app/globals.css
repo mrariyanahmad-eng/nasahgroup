@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-nasah-border;
+  }
+
+  body {
+    @apply bg-white text-nasah-ink font-body antialiased;
+  }
+
+  html.dark body {
+    @apply bg-nasah-dark-bg text-white;
+  }
+
+  ::selection {
+    @apply bg-nasah-red text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.nasah.red");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
